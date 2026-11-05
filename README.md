@@ -4,7 +4,7 @@ A responsive, component-based assignment distribution and submission logging das
 
 ## Demo Link
 
-- **Live Demo:** [https://vercel.app](https://vercel.app)
+- **Live Demo:** [https://sync-board-lac.vercel.app](https://sync-board-lac.vercel.app)
 
 ---
 
@@ -74,7 +74,7 @@ src/
 
 ### 1. Centralized Data Syncer (React Context API)
 
-Instead of dealing with prop-drilling across independent branches, a monolithic state engine wrapper (`AppContext.jsx`) holds core datasets. All database operations-such as assignment generation, edit rulesets, target list manipulations, and submission flags—are managed here, triggering clean, synchronized rerenders across both student and admin interfaces instantly.
+Instead of dealing with prop-drilling across independent branches, a monolithic state engine wrapper (`AppContext.jsx`) holds core datasets. All database operations-such as assignment generation, edit rulesets, target list manipulations, and submission flags are managed here, triggering clean, synchronized rerenders across both student and admin interfaces instantly.
 
 ### 2. State Mapping Structure for Submissions
 
@@ -95,7 +95,7 @@ The application includes automatic reactive synchronization routines (`useEffect
 
 ### 4. Custom Defensive UI Modal Architecture
 
-The multi-step student submission confirmation pattern ("_Submit_" $\rightarrow$ "_Confirm Workspace Verification_" $\rightarrow$ "_Finalize Security Warning_") relies on local state-driven rendering blocks. This ensures students don't accidentally submit tasks early and makes the workflow feel solid and reliable.
+The multi-step student submission confirmation pattern (Submit -> Confirm Workspace Verification -> Finalize Security Warning) relies on local state-driven rendering blocks. This ensures students don't accidentally submit tasks early and makes the workflow feel solid and reliable.
 
 ### 5. Fluid Responsive Utility Layout Grid
 
@@ -105,6 +105,6 @@ Using flexible grid components and layout classes (`grid-cols-1 md:grid-cols-2 l
 
 To fulfill strict data multi-tenancy requirements without backend overhead, an authentication routing barrier was added directly inside `App.jsx`. Unauthenticated sessions short-circuit to a dedicated `Login.jsx` view. Users pass email lookups against seed credentials to generate a secure state session, ensuring a student profile remains sandboxed within their active dashboard line while instructors retain exclusive task modification rights.
 
-### 7. Micro-Screen Spacing & String-Wrap Safeguards (320px–340px)
+### 7. Micro-Screen Spacing & String-Wrap Safeguards (320px-340px)
 
 To accommodate small layout viewports (e.g., iPhone SE), headers and interactive panels utilize responsive wrapping logic. Title strings such as "Admin Control Panel:" and student grid rows utilize inline-block layouts combined with `whitespace-nowrap` text protections. This forces long strings or compound names to drop down to a secondary line as complete blocks instead of snapping single words in half mid-character.
